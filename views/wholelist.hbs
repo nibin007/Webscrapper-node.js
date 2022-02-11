@@ -1,0 +1,64 @@
+<section>
+ <table class="table table-borderless table-dark">
+  <thead>
+    <tr>
+      <th scope="col">url</th>
+      <th scope="col">wordcount</th>
+      <th scope="col">favourite </th>
+       <th scope="col">Action</th>
+      <th scope="col">Backlinks</th>
+      <th scope="col">Medialinks</th>
+    </tr>
+  </thead>
+  <tbody>
+   {{#each d}}
+   <tr>
+      <td>{{this.url}}</td>
+      <td>{{this.wordcount}}</td>
+      {{#if this.favourite}}
+      <td>true</td>
+      {{else}}
+      <td>false</td>
+      {{/if}}
+      <td>
+         {{#if this.favourite}} 
+        <button class="btn btn-warning" onclick="ch('{{this._id}}','{{this.favourite}}')">unmark from favourite</button>
+         {{else}}
+          <button class="btn btn-success" onclick="ch('{{this._id}}','{{this.favourite}}')">mark to favourite</button>
+         {{/if}}
+        
+      <button class="btn btn-danger" onclick="remove('{{this._id}}')"> remove item from the list</button>
+      </td>
+      <td>
+         <ul>
+             {{#each this.links}}
+                <li><a href="{{this}}">{{this}}</a></li>
+            {{else}}
+            <li>Empty</li>
+            {{/each}}    
+          </ul>
+          
+      </td>
+      <td>
+          <ul>
+               {{#each this.media}}
+              <li><a href="{{this}}">{{this}}</a> </li>
+               {{else}}
+               <li>empty</li>
+             {{/each}}
+             
+            
+              
+             
+            
+          </ul>
+
+      </td>
+      
+      
+    </tr>
+ 
+      {{/each}}   
+    </tbody>
+  </table>
+  </section>

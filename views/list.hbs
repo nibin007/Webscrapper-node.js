@@ -1,0 +1,47 @@
+<section>
+
+    <input style="margin-left:10% ; margin-bottom: 1%;" type="button" value="Get history" class="btn btn-primary" onclick="location.href='/wholedata'" >
+    <input style="margin-left:13% ; margin-bottom: 1%;" type="button" value="Goback" class="btn btn-success" onclick="location.href='/'" >
+<table class="table table-borderless table-dark">
+  <thead>
+    <tr>
+      <th scope="col">url</th>
+      <th scope="col">wordcount</th>
+      <th scope="col">Backlinks</th>
+      <th scope="col">Medialinks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{data.url}}</th>
+      <td> {{data.wordcount}}</td>
+      <td>
+         <ul>
+             {{#each data.links}}
+                <li><a href="{{this}}">{{this}}</a></li>
+            {{else}}
+            <li>Empty</li>
+            {{/each}}    
+          </ul>
+          
+      </td>
+      <td>
+          <ul>
+               {{#each data.media}}
+              <li><a href="{{this}}">{{this}}</a> </li>
+               {{else}}
+               <li>empty</li>
+             {{/each}}
+             
+            
+              
+             
+            
+          </ul>
+
+      </td>
+      
+    </tr>
+    </tbody>
+  </table>
+  </section>
